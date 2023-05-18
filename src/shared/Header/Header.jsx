@@ -1,8 +1,19 @@
-import React from "react";
 import logo from "../../assets/logo.jpeg";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Header = () => {
+  const {user, logout} = useContext(AuthContext);
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        console.log("logout successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="md:mx-20">
       <div className="navbar bg-base-100">
@@ -47,9 +58,27 @@ const Header = () => {
             <Link to="/blogs">Blogs</Link>
           </ul>
         </div>
-        <div className="navbar-end">
+        {
+          user ?
+            <div className="mt-3 md:mt-0 navbar-end">
+                <img
+                  src={user.photoURL}
+                  alt=""
+                  srcset=""
+                  className="rounded-md h-12 w-12"
+                  title={user.displayName}
+                />
+                <button
+                  onClick={handleLogout}
+                  className="ms-4 btn bg-black"
+                >
+                  Log out
+                </button>
+              </div> : <div className="navbar-end">
           <Link to="/login" className="btn bg-black">Login</Link>
         </div>
+        }
+        
       </div>
     </div>
   );

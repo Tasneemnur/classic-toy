@@ -18,9 +18,9 @@ const Home = () => {
             </h1>
             <p className="mb-5">
               This Website provide you the best collection of toy cars. You can
-              easily purcase different types of kids toy car from this website.
+              easily purchase different types of toy cars for kids from this website.
             </p>
-            <button className="btn bg-white text-black">Get Started</button>
+            <button className="btn bg-white text-black hover:text-white">Get Started</button>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="mx-20 ">
+    <div className="md:mx-20">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -26,17 +26,13 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 space-y-4 text-gray-500"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-              <a>Item 2</a>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              <Link to="/">Home</Link>
+              <Link to="/allToys">All Toys</Link>
+              <Link to="/myToys">My Toys</Link>
+              <Link to="/addToy">Add A Toy</Link>
+              <Link to="/blogs">Blogs</Link>
             </ul>
           </div>
           <img src={logo} className="h-20 w-20" alt="" />
@@ -52,7 +48,7 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn bg-black">Login</a>
+          <Link to="/login" className="btn bg-black">Login</Link>
         </div>
       </div>
     </div>

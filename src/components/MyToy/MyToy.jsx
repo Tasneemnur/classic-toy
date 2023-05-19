@@ -1,10 +1,11 @@
+import { MdDelete } from "react-icons/md";
+import { AiFillEdit } from "react-icons/ai";
+
 const MyToy = ({ myToy }) => {
   const {
     _id,
     toyName,
     photo,
-    sellerName,
-    sellerEmail,
     category,
     price,
     rating,
@@ -13,38 +14,22 @@ const MyToy = ({ myToy }) => {
   } = myToy;
   return (
     <tr>
-      <th>
-        <label>
-          <input type="checkbox" className="checkbox" />
-        </label>
-      </th>
       <td>
-        <div className="flex items-center space-x-3">
-          <div className="avatar">
-            <div className="mask mask-squircle w-12 h-12">
-              <img
-                src="/tailwind-css-component-profile-2@56w.png"
-                alt="Avatar Tailwind CSS Component"
-              />
-            </div>
-          </div>
-          <div>
-            <div className="font-bold">Hart Hagerty</div>
-            <div className="text-sm opacity-50">United States</div>
+        <div className="avatar">
+          <div className="mask rounded-md w-20 h-20">
+            <img src={photo} alt="Avatar Tailwind CSS Component" />
           </div>
         </div>
       </td>
+      <td>{toyName}</td>
+      <td>{category}</td>
+      <td>{price}</td>
+      <td>{quantity}</td>
+      <td>{rating}</td>
       <td>
-        Zemlak, Daniel and Leannon
-        <br />
-        <span className="badge badge-ghost badge-sm">
-          Desktop Support Technician
-        </span>
+       <><button className="text-2xl me-4"><AiFillEdit /></button> <button className="text-2xl text-red-600"><MdDelete /></button></> 
       </td>
-      <td>Purple</td>
-      <th>
-        <button className="btn btn-ghost btn-xs">details</button>
-      </th>
+      <th></th>
     </tr>
   );
 };

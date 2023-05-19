@@ -5,9 +5,9 @@ const AllToys = () => {
   console.log(toys);
   return (
     <div>
-      <div className="overflow-x-auto mx-20 my-10">
-        <table className="table table-zebra w-full">
-          <thead>
+      <div className="mx-20 my-10">
+        <table className="table text-center mx-auto ">
+          <thead className=" bg-yellow-400">
             <tr>
               <th>Seller</th>
               <th>Toy Name</th>

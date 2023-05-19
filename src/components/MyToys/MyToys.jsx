@@ -10,31 +10,30 @@ const MyToys = () => {
       .then((res) => res.json())
       .then((data) => setMyToys(data));
   }, []);
-  return <div>
-    <div className="overflow-x-auto w-full">
-  <table className="table w-full">
-  
-    <thead>
-      <tr>
-        <th>Picture</th>
-        <th>Toy Name</th>
-        <th>Sub-Category</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Rating</th>
-        <th>Description</th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-    {
-        myToys.map(myToy => <MyToy key={myToy._id} myToy={myToy}></MyToy> )
-    }
-    </tbody>
-    </table>
-  </div>;
-  </div>
+  return (
+    <div className="mx-20 my-12">
+      <div className="w-full">
+        <table className="table text-center mx-auto">
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Toy Name</th>
+              <th>Sub-Category</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Rating</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {myToys.map((myToy) => (
+              <MyToy key={myToy._id} myToy={myToy}></MyToy>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 };
 
 export default MyToys;

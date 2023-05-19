@@ -53,7 +53,13 @@ const Header = () => {
           <ul className="menu menu-horizontal space-x-8 text-gray-500">
             <Link to="/">Home</Link>
             <Link to="/allToys">All Toys</Link>
-            <Link to="/myToys">My Toys</Link>
+            {
+              user?.email ?
+               <>
+              <Link to="/myToys">My Toys</Link>
+              </> : ""
+            }
+            
             <Link to="/addToy">Add A Toy</Link>
             <Link to="/blogs">Blogs</Link>
           </ul>
@@ -64,7 +70,6 @@ const Header = () => {
                 <img
                   src={user.photoURL}
                   alt=""
-                  srcset=""
                   className="rounded-md h-12 w-12"
                   title={user.displayName}
                 />

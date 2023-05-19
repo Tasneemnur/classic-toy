@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import banner1 from "../../assets/banner1.jpeg";
 
 const AddAToy = () => {
   const { user } = useContext(AuthContext);
@@ -17,10 +18,23 @@ const AddAToy = () => {
     const description = form.description.value;
     const toy = {toyName,photo,sellerName,sellerEmail,category,price,rating,quantity,description}
     console.log(toy)
+    fetch('http://localhost:5000/toys', {
+      method: "POST",
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(toy)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      form.reset()
+    })
 
   }
   return (
-    <div>
+   
+      <div>
       <h1 className="text-3xl text-center font-bold mt-10 mb-3">
         Add A <span className="text-yellow-500">Toy Car</span>
       </h1>
@@ -36,6 +50,7 @@ const AddAToy = () => {
               placeholder="name"
               name="toyName"
               className="input input-bordered w-full max-w-xs"
+              required
             />
           </div>
           <div className="form-control w-full max-w-xs">
@@ -47,6 +62,7 @@ const AddAToy = () => {
               placeholder="photo url"
               name="photo"
               className="input input-bordered w-full max-w-xs"
+              required
             />
           </div>
           <div className="form-control w-full max-w-xs">
@@ -59,6 +75,7 @@ const AddAToy = () => {
               name="sellerName"
               defaultValue={user?.displayName}
               className="input input-bordered w-full max-w-xs"
+              required
             />
           </div>
           <div className="form-control w-full max-w-xs">
@@ -71,13 +88,14 @@ const AddAToy = () => {
               name="sellerEmail"
               defaultValue={user?.email}
               className="input input-bordered w-full max-w-xs"
+              required
             />
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
               <span className="label-text">Sub Category</span>
             </label>
-            <select className="select select-bordered" name="category">
+            <select className="select select-bordered" name="category" required>
               <option>Sports Car</option>
               <option>Truck</option>
               <option>Mini Police Car</option>
@@ -92,6 +110,7 @@ const AddAToy = () => {
               placeholder="price"
               name="price"
               className="input input-bordered w-full max-w-xs"
+              required
             />
           </div>
           <div className="form-control w-full max-w-xs">
@@ -103,6 +122,7 @@ const AddAToy = () => {
               placeholder="rating"
               name="rating"
               className="input input-bordered w-full max-w-xs"
+              required
             />
           </div>
           <div className="form-control w-full max-w-xs">
@@ -114,6 +134,7 @@ const AddAToy = () => {
               placeholder="quantity"
               name="quantity"
               className="input input-bordered w-full max-w-xs"
+              required
             />
           </div>
           <div className="form-control w-full  col-span-2">
@@ -124,11 +145,12 @@ const AddAToy = () => {
               className="textarea textarea-bordered h-24"
               name="description"
               placeholder="detail description"
+              required
             ></textarea>
           </div>
           <div className="form-control mt-6 w-full col-span-2">
             <input
-              className="btn"
+              className="btn bg-yellow-500 border-none hover:bg-yellow-600"
               type="submit"
               value="Add"
             />

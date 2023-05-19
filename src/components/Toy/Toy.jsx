@@ -1,7 +1,7 @@
-import React from "react";
+
 
 const Toy = ({ toy }) => {
-  const { _id, toyName, sellerName, category, quantity, price } = toy;
+  const { toyName, sellerName, category, quantity, price } = toy;
   return (
     <tr>
       <td className="border-none">{sellerName}</td>

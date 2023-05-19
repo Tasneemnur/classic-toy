@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import banner1 from "../../assets/banner1.jpeg";
+
 
 const AddAToy = () => {
   const { user } = useContext(AuthContext);

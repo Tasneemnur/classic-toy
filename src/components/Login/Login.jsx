@@ -1,10 +1,10 @@
-
+import { FcGoogle} from "react-icons/fc";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
-  const {user, login, googleLogin } = useContext(AuthContext);
+  const { login, googleLogin } = useContext(AuthContext);
 
   const handleLoginWithEmailAndPass = event => {
     event.preventDefault();
@@ -77,7 +77,7 @@ const Login = () => {
           </div>
         </div>
         <div className="divider w-96 mx-auto font-semibold mb-8">OR</div>
-        <div className="w-80 mx-auto"><button onClick={handleLoginWithGoogle} className="btn w-full mx-auto bg-black">Sign-in With Google</button></div>
+        <div className="w-80 mx-auto"><button onClick={handleLoginWithGoogle} className="btn w-full mx-auto bg-black "><FcGoogle className="me-4 text-xl"/>Sign-in With Google</button></div>
         </div>
 
   );

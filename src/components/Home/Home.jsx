@@ -1,6 +1,7 @@
 
 import banner2 from "../../assets/banner2.jpeg";
 import Category from "../Category/Category";
+import Gallery from "../Gallery/Gallery";
 
 const Home = () => {
   return (
@@ -24,6 +25,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Gallery></Gallery>
       <Category></Category>
     </div>
   );

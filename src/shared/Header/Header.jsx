@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Header = () => {
-  const {user, logout} = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const handleLogout = () => {
     logout()
       .then(() => {
@@ -41,8 +41,14 @@ const Header = () => {
             >
               <Link to="/">Home</Link>
               <Link to="/allToys">All Toys</Link>
-              <Link to="/myToys">My Toys</Link>
-              <Link to="/addToy">Add A Toy</Link>
+              {user?.email ? (
+                <>
+                  <Link to="/myToys">My Toys</Link>
+                  <Link to="/addToy">Add A Toy</Link>
+                </>
+              ) : (
+                ""
+              )}
               <Link to="/blogs">Blogs</Link>
             </ul>
           </div>
@@ -53,37 +59,37 @@ const Header = () => {
           <ul className="menu menu-horizontal space-x-8 text-gray-500">
             <Link to="/">Home</Link>
             <Link to="/allToys">All Toys</Link>
-            {
-              user?.email ?
-               <>
-              <Link to="/myToys">My Toys</Link>
-              </> : ""
-            }
-            
-            <Link to="/addToy">Add A Toy</Link>
+            {user?.email ? (
+              <>
+                <Link to="/myToys">My Toys</Link>
+                <Link to="/addToy">Add A Toy</Link>
+              </>
+            ) : (
+              ""
+            )}
+
             <Link to="/blogs">Blogs</Link>
           </ul>
         </div>
-        {
-          user ?
-            <div className="mt-3 md:mt-0 navbar-end">
-                <img
-                  src={user.photoURL}
-                  alt=""
-                  className="rounded-md h-12 w-12"
-                  title={user.displayName}
-                />
-                <button
-                  onClick={handleLogout}
-                  className="ms-4 btn bg-black"
-                >
-                  Log out
-                </button>
-              </div> : <div className="navbar-end">
-          <Link to="/login" className="btn bg-black">Login</Link>
-        </div>
-        }
-        
+        {user ? (
+          <div className="mt-3 md:mt-0 navbar-end">
+            <img
+              src={user.photoURL}
+              alt=""
+              className="rounded-md h-12 w-12"
+              title={user.displayName}
+            />
+            <button onClick={handleLogout} className="ms-4 btn bg-black">
+              Log out
+            </button>
+          </div>
+        ) : (
+          <div className="navbar-end">
+            <Link to="/login" className="btn bg-black">
+              Login
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

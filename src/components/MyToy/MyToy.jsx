@@ -1,6 +1,7 @@
 import { MdDelete } from "react-icons/md";
 import { AiFillEdit } from "react-icons/ai";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyToy = ({ myToy, myToys, setMyToys }) => {
   const {
@@ -37,6 +38,7 @@ const MyToy = ({ myToy, myToys, setMyToys }) => {
       }
     });
   };
+
   return (
     <tr>
       <td>
@@ -53,9 +55,9 @@ const MyToy = ({ myToy, myToys, setMyToys }) => {
       <td>{rating}</td>
       <td>
         <>
-          <button className="text-2xl me-4">
+          <Link to={`update/${_id}`}><button className="text-2xl me-4">
             <AiFillEdit />
-          </button>{" "}
+          </button></Link>
           <button
             onClick={() => handleDelete(_id)}
             className="text-2xl text-red-600"

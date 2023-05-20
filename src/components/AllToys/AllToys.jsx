@@ -6,15 +6,15 @@ const AllToys = () => {
   return (
     <div>
       <div className="mx-20 my-10">
-        <table className="table text-center mx-auto ">
+        <table className="table text-center mx-auto">
           <thead className=" bg-yellow-400">
             <tr>
-              <th>Seller</th>
-              <th>Toy Name</th>
-              <th>Sub-Category</th>
-              <th>Price</th>
-              <th>Available Quantity</th>
-              <th>Details</th>
+              <th className="bg-stone-500 text-white">Seller</th>
+              <th className="bg-stone-500 text-white">Toy Name</th>
+              <th className="bg-stone-500 text-white">Sub-Category</th>
+              <th className="bg-stone-500 text-white">Price</th>
+              <th className="bg-stone-500 text-white">Available Quantity</th>
+              <th className="bg-stone-500 text-white">Details</th>
             </tr>
           </thead>
           <tbody>

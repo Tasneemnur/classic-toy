@@ -55,7 +55,7 @@ const MyToy = ({ myToy, myToys, setMyToys }) => {
       <td>{rating}</td>
       <td>
         <>
-          <Link to={`update/${_id}`}><button className="text-2xl me-4">
+          <Link to={`/update/${_id}`}><button className="text-2xl me-4">
             <AiFillEdit />
           </button></Link>
           <button

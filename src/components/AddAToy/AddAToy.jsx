@@ -34,7 +34,7 @@ const AddAToy = () => {
   }
   return (
    
-      <div>
+      <div className="mb-24">
       <h1 className="text-3xl text-center font-bold mt-10 mb-3">
         Add A <span className="text-yellow-500">Toy Car</span>
       </h1>

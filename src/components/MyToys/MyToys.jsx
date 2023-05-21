@@ -6,10 +6,10 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
   useEffect(() => {
-    fetch(`https://assignment-11-toy-car-zone-server.vercel.app/toys?email=${user?.email}`)
+    fetch(`https://assignment-11-toy-car-zone-server-tasneemnur.vercel.app/toys?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMyToys(data));
-  }, []);
+  }, [user]);
   return (
     <div className="mx-20 my-12">
       <div className="text-right mx-32 mb-10">

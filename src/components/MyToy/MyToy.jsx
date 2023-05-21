@@ -16,7 +16,7 @@ const MyToy = ({ myToy, myToys, setMyToys }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://assignment-11-toy-car-zone-server.vercel.app/toys/${id}`,
+          `https://assignment-11-toy-car-zone-server-tasneemnur.vercel.app/toys/${id}`,
           {
             method: "DELETE",
           }

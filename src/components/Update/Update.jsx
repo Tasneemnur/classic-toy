@@ -14,7 +14,7 @@ const Update = () => {
     const description = form.description.value;
     const toy = {price, quantity, description}
 
-    fetch(`https://assignment-11-toy-car-zone-server.vercel.app/toys/${_id}`, {
+    fetch(`https://assignment-11-toy-car-zone-server-tasneemnur.vercel.app/toys/${_id}`, {
         method: "PUT",
         headers: {
             'content-type': "application/json"

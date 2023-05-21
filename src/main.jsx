@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       {
         path: "/allToys",
         element: <AllToys></AllToys>,
-        loader: () => fetch('https://assignment-11-toy-car-zone-server.vercel.app/toys')
+        loader: () => fetch('https://assignment-11-toy-car-zone-server-tasneemnur.vercel.app/toys')
       },
       {
         path: "/myToys",
@@ -57,12 +57,12 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`https://assignment-11-toy-car-zone-server.vercel.app/toys/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-11-toy-car-zone-server-tasneemnur.vercel.app/toys/${params.id}`)
       },
       {
         path: "/update/:id",
         element: <Update></Update>,
-        loader: ({params}) => fetch(`https://assignment-11-toy-car-zone-server.vercel.app/toys/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-11-toy-car-zone-server-tasneemnur.vercel.app/toys/${params.id}`)
       },
 
     ]

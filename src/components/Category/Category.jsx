@@ -7,7 +7,7 @@ const Category = () => {
   const [activeTab, setActiveTab] = useState("Sports Car");
 
   useEffect(() => {
-    fetch(`https://assignment-11-toy-car-zone-server.vercel.app/categories/${activeTab}`)
+    fetch(`https://assignment-11-toy-car-zone-server-tasneemnur.vercel.app/categories/${activeTab}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, [activeTab]);

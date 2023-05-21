@@ -1,11 +1,13 @@
 
 import banner2 from "../../assets/banner2.jpeg";
+import useTitle from "../../hooks/useTitle";
 import Category from "../Category/Category";
 import Clients from "../Clients/Clients";
 import Features from "../Features/Features";
 import Gallery from "../Gallery/Gallery";
 
 const Home = () => {
+  useTitle("Home")
   return (
     <div>
       <div

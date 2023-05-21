@@ -26,5 +26,6 @@
 
 - A loader also showed in the private route. If a user login he will be redirected to the page he wants to explore.
 
-- https://assignment-11-toy-car-zone.web.app/
+- Dynamically website title is changed according to route.
 
+- https://assignment-11-toy-car-zone.web.app/

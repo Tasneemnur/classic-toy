@@ -2,10 +2,12 @@ import { updateProfile } from "firebase/auth";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Registration = () => {
   const { createUser} = useContext(AuthContext);
+  useTitle("Registration")
   const handleCreateUser = event => {
     event.preventDefault();
     const form = event.target;

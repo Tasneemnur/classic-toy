@@ -1,7 +1,9 @@
 import { Link, useRouteError } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 import img from "../../images/error.jpg"
 
 const ErrorPage = () => {
+    useTitle("Error")
     const { error, status } = useRouteError();
     return (
         <div className="hero min-h-screen"

@@ -1,6 +1,8 @@
+import useTitle from "../../hooks/useTitle";
 
 
 const Blogs = () => {
+    useTitle("Blogs")
     return (
         <div className='flex justify-center items-center pt-10 pb-20 bg-gray-100'>
         <div className='w-3/4'>

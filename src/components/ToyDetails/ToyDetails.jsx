@@ -1,8 +1,10 @@
 import { Rating } from "@mui/material";
 import { useLoaderData } from "react-router-dom";
 import { HiOutlineMail } from "react-icons/hi";
+import useTitle from "../../hooks/useTitle";
 
 const ToyDetails = () => {
+  useTitle("Toy Details")
   const toy = useLoaderData();
   const {
     photo,

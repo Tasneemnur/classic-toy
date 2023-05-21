@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router";
+import useTitle from "../../hooks/useTitle";
 import Toy from "../Toy/Toy";
 const AllToys = () => {
+  useTitle("All Toys")
   const loadedToys = useLoaderData();
   const [toys,setToys] = useState(loadedToys);
 

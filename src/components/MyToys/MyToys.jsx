@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState } from "react";
+import useTitle from "../../hooks/useTitle";
 import { AuthContext } from "../../providers/AuthProvider";
 import MyToy from "../MyToy/MyToy";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
+  useTitle("My Toys")
   const [myToys, setMyToys] = useState([]);
   useEffect(() => {
     fetch(`https://assignment-11-toy-car-zone-server-tasneemnur.vercel.app/toys?email=${user?.email}`)

@@ -10,7 +10,8 @@ const Toy = ({ toy }) => {
       <td>{category}</td>
       <td>{price}</td>
       <td>{quantity}</td>
-      <td><Link to={`/details/${_id}`}><button className="btn bg-stone-400 hover:bg-yellow-500 border-none">View Details</button></Link></td>
+      <td><Link to={`/details/${_id}`}><div className="badge badge-outline">View Details</div>
+      </Link></td>
     </tr>
   );
 };

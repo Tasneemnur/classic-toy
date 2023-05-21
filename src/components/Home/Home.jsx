@@ -1,11 +1,12 @@
 
 import banner2 from "../../assets/banner2.jpeg";
 import Category from "../Category/Category";
+import Features from "../Features/Features";
 import Gallery from "../Gallery/Gallery";
 
 const Home = () => {
   return (
-    <div className="md:mx-20">
+    <div>
       <div
         className="hero min-h-screen"
         style={{ backgroundImage: `url(${banner2})` }}
@@ -25,8 +26,12 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div className="md:mx-20">
       <Gallery></Gallery>
       <Category></Category>
+      <Features></Features>
+      </div>
+      
     </div>
   );
 };

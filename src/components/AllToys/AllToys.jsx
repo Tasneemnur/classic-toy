@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 import useTitle from "../../hooks/useTitle";
 import Toy from "../Toy/Toy";
@@ -6,13 +6,21 @@ const AllToys = () => {
   useTitle("All Toys")
   const loadedToys = useLoaderData();
   const [toys,setToys] = useState(loadedToys);
+  const [search, setSearch] = useState("")
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/toys?search=${search}`)
+        .then(res => res.json())
+        .then(data => setToys(data));
+}, [search])
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.toyName.value;
-    const matchedToy = toys.filter(toy => toy.toyName === name)
-    setToys(matchedToy);
+    setSearch(name);
+    // const matchedToy = toys.filter(toy => toy.toyName === name)
+    // setToys(matchedToy);
   }
   console.log(toys);
   return (

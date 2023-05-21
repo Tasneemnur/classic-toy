@@ -6,6 +6,10 @@ import six from"../../images/t6.jpeg"
 import seven from"../../images/t7.jpeg"
 import eight from"../../images/police3.jpg"
 import nine from"../../images/t9.jpeg"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init();
 
 const Gallery = () => {
     return (
@@ -16,22 +20,22 @@ const Gallery = () => {
                 <div className="bg-base-100 shadow-xl p-10">
                     <img src={one} alt="" />
                 </div>
-                <div className="bg-base-100 shadow-xl px-10 pt-20">
+                <div data-aos="zoom-in-down" className="bg-base-100 shadow-xl px-10 pt-20">
                     <img src={two}  alt="" />
                 </div>
                 <div className="bg-base-100 shadow-xl px-10 pt-16 ">
                     <img src={three} alt="" />
                 </div>
-                <div className="bg-base-100 shadow-xl px-10 md:pt-7 py-7">
+                <div data-aos="zoom-in-down" className="bg-base-100 shadow-xl px-10 md:pt-7 py-7">
                     <img src={five} className="" alt="" />
                 </div>
-                <div className="bg-base-100 shadow-xl px-10 md:py-12 pt-10">
+                <div data-aos="zoom-in-down" className="bg-base-100 shadow-xl px-10 md:py-12 pt-10">
                     <img src={six}  alt=""  />
                 </div>
                 <div className="bg-base-100 shadow-xl px-10 md:pt-10 py-10 md:pb-0">
                     <img src={seven} className="w-full" alt="" />
                 </div>
-                <div className="bg-base-100 shadow-xl p-10">
+                <div data-aos="zoom-in-down" className="bg-base-100 shadow-xl p-10">
                     <img src={eight} className="w-full" alt="" />
                 </div>
                 <div className="bg-base-100 shadow-xl px-10 py-16 md:pt-24">

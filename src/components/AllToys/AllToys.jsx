@@ -19,8 +19,6 @@ const AllToys = () => {
     const form = event.target;
     const name = form.toyName.value;
     setSearch(name);
-    // const matchedToy = toys.filter(toy => toy.toyName === name)
-    // setToys(matchedToy);
   }
   console.log(toys);
   return (

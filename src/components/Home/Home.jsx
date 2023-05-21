@@ -1,6 +1,7 @@
 
 import banner2 from "../../assets/banner2.jpeg";
 import Category from "../Category/Category";
+import Clients from "../Clients/Clients";
 import Features from "../Features/Features";
 import Gallery from "../Gallery/Gallery";
 
@@ -29,6 +30,9 @@ const Home = () => {
       <div className="md:mx-20">
       <Gallery></Gallery>
       <Category></Category>
+      </div>
+      <div>
+      <Clients></Clients>
       <Features></Features>
       </div>
       

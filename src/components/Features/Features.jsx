@@ -5,7 +5,7 @@ import one from "../../images/one.jpg"
 
 const Features = () => {
     return (
-        <div className="md:mx-0 mx-3">
+        <div className="md:mx-20 mx-3">
             <h1 className="text-3xl font-bold text-center mt-20">OUR<span className="text-yellow-500 ms-5">FEATURES</span></h1>
             <p className="text-center mt-2 text-gray-600"> We try to give you the best toy cars so that your kids keep smiling.</p>
             <div className="grid md:grid-cols-4 grid-cols-2 gap-6 my-16">

@@ -1,11 +1,11 @@
 import { updateProfile } from "firebase/auth";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Registration = () => {
   const { createUser} = useContext(AuthContext);
-  const [error, setError] = useState("");
   const handleCreateUser = event => {
     event.preventDefault();
     const form = event.target;
@@ -15,7 +15,10 @@ const Registration = () => {
     const photo = form.photo.value;
 
     if (password.length < 6) {
-      setError("Password must be at least 6 characters.");
+      return Swal.fire({
+        icon: 'error',
+        title: 'Password must be at least 6 characters long'
+      })
     }
 
     createUser(email, password)
@@ -38,7 +41,7 @@ const Registration = () => {
           console.log("user name and URL updated");
         })
         .catch((error) => {
-          setError(error.message);
+         console.log(error)
         });
     };
   }

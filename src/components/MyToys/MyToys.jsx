@@ -6,12 +6,18 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/toys?email=${user?.email}`)
+    fetch(`https://assignment-11-toy-car-zone-server.vercel.app/toys?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMyToys(data));
   }, []);
   return (
     <div className="mx-20 my-12">
+      <div className="text-right mx-32 mb-10">
+      <select className="select select-bordered max-w-xs text-center">
+        <option>Ascending</option>
+        <option>Descending</option>
+      </select>
+      </div>
       <div className="w-full">
         <table className="table text-center mx-auto">
           <thead>
@@ -22,12 +28,18 @@ const MyToys = () => {
               <th>Price</th>
               <th>Quantity</th>
               <th>Rating</th>
+              <th>Details</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {myToys.map((myToy) => (
-              <MyToy key={myToy._id} myToy={myToy} myToys={myToys} setMyToys={setMyToys}></MyToy>
+              <MyToy
+                key={myToy._id}
+                myToy={myToy}
+                myToys={myToys}
+                setMyToys={setMyToys}
+              ></MyToy>
             ))}
           </tbody>
         </table>

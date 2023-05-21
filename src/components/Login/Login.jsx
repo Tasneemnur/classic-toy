@@ -1,10 +1,14 @@
 import { FcGoogle} from "react-icons/fc";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { login, googleLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
 
   const handleLoginWithEmailAndPass = event => {
     event.preventDefault();
@@ -14,16 +18,32 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         const loggedUser = result.user;
+        if(loggedUser){
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Login Successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
         console.log(loggedUser)
         form.reset();
+        navigate(from, {replace:true})
       })
       .catch((error) => {
         console.log(error.message);
         if(error.message === "Firebase: Error (auth/wrong-password)."){
-         return alert("Wrong Password")
+         return Swal.fire({
+          icon: 'error',
+          title: 'Wrong Password'
+        })
         }
         if(error.message === "Firebase: Error (auth/user-not-found)."){
-          return alert("Wrong Email")
+          return Swal.fire({
+            icon: 'error',
+            title: 'Wrong Email'
+          })
         }
       });
   }

@@ -1,12 +1,39 @@
+import { useState } from "react";
 import { useLoaderData } from "react-router";
 import Toy from "../Toy/Toy";
 const AllToys = () => {
-  const toys = useLoaderData();
+  const loadedToys = useLoaderData();
+  const [toys,setToys] = useState(loadedToys);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.toyName.value;
+    const matchedToy = toys.filter(toy => toy.toyName === name)
+    setToys(matchedToy);
+  }
   console.log(toys);
   return (
     <div>
       <div className="mx-20 my-10">
-        <table className="table text-center mx-auto">
+        <div className="mb-10 mx-8">
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Toy name"
+              name="toyName"
+              className="input input-bordered w-72"
+              required
+            />
+
+            <input
+              type="submit"
+              className="btn ms-3 bg-yellow-500 border-none"
+              value="search"
+            />
+          </form>
+        </div>
+        <table className="table text-center">
           <thead className=" bg-yellow-400">
             <tr>
               <th className="bg-stone-500 text-white">Seller</th>

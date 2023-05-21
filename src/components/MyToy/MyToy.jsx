@@ -4,15 +4,7 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 const MyToy = ({ myToy, myToys, setMyToys }) => {
-  const {
-    _id,
-    toyName,
-    photo,
-    category,
-    price,
-    rating,
-    quantity,
-  } = myToy;
+  const { _id, toyName, photo, category, price, rating, quantity } = myToy;
   const handleDelete = (id) => {
     Swal.fire({
       text: "Do you really want to delete this Toy?",
@@ -23,9 +15,12 @@ const MyToy = ({ myToy, myToys, setMyToys }) => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/toys/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assignment-11-toy-car-zone-server.vercel.app/toys/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -54,10 +49,17 @@ const MyToy = ({ myToy, myToys, setMyToys }) => {
       <td>{quantity}</td>
       <td>{rating}</td>
       <td>
+        <Link to={`/details/${_id}`}>
+          <div className="badge badge-outline">View Details</div>
+        </Link>
+      </td>
+      <td>
         <>
-          <Link to={`/update/${_id}`}><button className="text-2xl me-4">
-            <AiFillEdit />
-          </button></Link>
+          <Link to={`/update/${_id}`}>
+            <button className="text-2xl me-4">
+              <AiFillEdit />
+            </button>
+          </Link>
           <button
             onClick={() => handleDelete(_id)}
             className="text-2xl text-red-600"

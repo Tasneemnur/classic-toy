@@ -14,7 +14,7 @@ const Update = () => {
     const description = form.description.value;
     const toy = {price, quantity, description}
 
-    fetch(`http://localhost:5000/toys/${_id}`, {
+    fetch(`https://assignment-11-toy-car-zone-server.vercel.app/toys/${_id}`, {
         method: "PUT",
         headers: {
             'content-type': "application/json"
@@ -28,8 +28,8 @@ const Update = () => {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'Toy Information Updated Successfully',
-                showConfirmButton: false,
+                text: 'Toy information updated successfully',
+                confirmButtonText: 'Ok',
                 timer: 1500
               })
         }
